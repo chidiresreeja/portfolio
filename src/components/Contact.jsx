@@ -19,10 +19,10 @@ const Contact = () => {
         <p className="text-lg mb-4 flex items-center justify-center gap-2">
           <Mail className="text-pink-400" size={22} />
           <a
-            href="chidiresreeja3@gmail.com"
+            href="mailto:chidiresreeja3@gmail.com"
             className="text-pink-400 hover:underline"
           >
-            your.email@example.com
+            chidiresreeja3@gmail.com
           </a>
         </p>
 
@@ -51,4 +51,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

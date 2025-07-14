@@ -1,7 +1,7 @@
 import p1 from "../assets/p1.png";
 import p2 from "../assets/p2.png";
 import p3 from "../assets/p3.png";
-
+import p4 from "../assets/p4.png";
 const Projects = () => {
   return (
     <section
@@ -48,7 +48,25 @@ const Projects = () => {
               View Project
             </a>
           </div>
-
+          {/* Quiz Website Project */}
+          <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+            <img src={p4} alt="Quiz Website" className="w-full h-48 object-cover" />
+            <div className="p-4">
+              <h3 className="text-xl font-semibold text-white mb-2">JavaScript Quiz Website</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Developed a dynamic quiz website with 25 JS questions, instant feedback, and score tracking.
+                Great for testing core JavaScript skills interactively.
+              </p>
+              <a
+                href="https://chidiresreeja.github.io/quizwebsite/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition-colors"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
           {/* Project 3 */}
           <div className="bg-gray-800 rounded-lg shadow-lg p-4 hover:scale-105 transition-transform">
             <img src={p3} alt="Form Validation" className="rounded mb-4 h-40 w-full object-cover" />
