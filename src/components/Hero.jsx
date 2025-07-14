@@ -3,18 +3,21 @@ import * as THREE from "three";
 import NET from "vanta/dist/vanta.net.min";
 import profileImg from "../assets/sreeja.jpg";
 
-const roles = [
-  "Frontend Developer",
-  "Data Analyst",
-  "AI & ML Enthusiast",
-];
+import HeroLinks from "./HeroLinks";
+import About from "./About";
+import Projects from "./Projects";
+import Achievements from "./Achievements";
+import Contact from "./Contact";
+
+const roles = ["Frontend Developer", "Data Analyst", "AI & ML Enthusiast"];
 
 const Hero = () => {
   const vantaRef = useRef(null);
   const [vantaEffect, setVantaEffect] = useState(null);
 
   const [index, setIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
+  const [text, setText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
     if (!vantaEffect) {
@@ -35,43 +38,40 @@ const Hero = () => {
     };
   }, [vantaEffect]);
 
-  // Typing animation
+  // ✅ Correct Typing Logic (No "undefined", no cut-off)
   useEffect(() => {
-    let currentRole = roles[index];
-    let charIndex = 0;
-    const typing = setInterval(() => {
-      if (charIndex < currentRole.length) {
-        setDisplayedText((prev) => prev + currentRole[charIndex]);
-        charIndex++;
-      } else {
-        clearInterval(typing);
-        setTimeout(() => {
-          setDisplayedText("");
-          setIndex((prev) => (prev + 1) % roles.length);
-        }, 1500);
-      }
-    }, 100);
-
-    return () => clearInterval(typing);
-  }, [index]);
+    const currentRole = roles[index];
+    if (charIndex < currentRole.length) {
+      const timeout = setTimeout(() => {
+        setText((prev) => prev + currentRole[charIndex]);
+        setCharIndex((prev) => prev + 1);
+      }, 100);
+      return () => clearTimeout(timeout);
+    } else {
+      const pause = setTimeout(() => {
+        setText("");
+        setCharIndex(0);
+        setIndex((prev) => (prev + 1) % roles.length);
+      }, 1500);
+      return () => clearTimeout(pause);
+    }
+  }, [charIndex, index]);
 
   return (
     <section
       id="home"
       ref={vantaRef}
-      className="min-h-screen flex flex-col items-center justify-center text-center text-white px-4 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-start text-white text-center px-4 relative overflow-x-hidden"
     >
-      <div className="z-10">
+      <div className="z-10 mt-20">
         <img
           src={profileImg}
           alt="profile"
           className="w-32 h-32 rounded-full mb-6 border-4 border-white shadow-lg"
         />
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-2">
-          Hi, I'm Chidire Sreeja
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold mb-2">Hi, I'm Chidire Sreeja</h1>
         <h2 className="text-2xl sm:text-3xl text-pink-400 font-semibold h-10">
-          {displayedText}
+          {text}
           <span className="animate-pulse">|</span>
         </h2>
         <p className="text-md text-gray-300 max-w-xl mt-4">
@@ -79,6 +79,32 @@ const Hero = () => {
           dedicated to crafting intelligent, responsive digital experiences.
         </p>
       </div>
+
+      {/* Hero Buttons */}
+      <HeroLinks />
+
+      {/* ALL SECTIONS below Hero */}
+<div className="w-full mt-10 space-y-24">
+
+  <div id="about" className="py-16">
+    <About />
+  </div>
+
+  <div id="achievements" className="py-16">
+    <Achievements />
+  </div>
+
+  <div id="projects" className="py-16">
+    <Projects />
+  </div>
+
+  <div id="contact" className="py-16">
+    <Contact />
+  </div>
+
+</div>
+
+
     </section>
   );
 };

@@ -2,13 +2,22 @@ import p1 from "../assets/p1.png";
 import p2 from "../assets/p2.png";
 import p3 from "../assets/p3.png";
 import p4 from "../assets/p4.png";
+import { useNavigate } from "react-router-dom";
 const Projects = () => {
+  const navigate = useNavigate();
   return (
     <section
       id="projects"
       data-aos="fade-up"
-      className="min-h-screen bg-black text-white py-16 px-6"
+      className="min-h-screen bg-gradient-to-b from-[#1f1c2c] via-[#2b5876] to-[#4e4376] text-white py-16 px-6 scroll-mt-24"
+
     >
+      <button
+        onClick={() => navigate("/")}
+        className="mb-6 text-pink-400 hover:underline"
+      >
+        ← Back to Home
+      </button>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 border-b-2 border-pink-500 inline-block">
           Projects
@@ -23,13 +32,14 @@ const Projects = () => {
               Upload CSVs, filter data, and view charts with GPT-4o-powered summaries.
             </p>
             <a
-              href="https://ai-analytics-dashboard.vercel.app/"
-              className="text-pink-400 hover:underline text-sm"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project
-            </a>
+                href="https://ai-analytics-dashboard.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition-colors"
+              >
+                View Project
+              </a>
+            
           </div>
 
           {/* Project 2 */}
@@ -40,13 +50,13 @@ const Projects = () => {
               Blockchain Chrome Extension to verify products using QR and smart contracts.
             </p>
             <a
-              href="https://fpd-blockchain.web.app/"
-              className="text-pink-400 hover:underline text-sm"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project
-            </a>
+                href="https://fpd-blockchain.web.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition-colors"
+              >
+                View Project
+              </a>
           </div>
           {/* Quiz Website Project */}
           <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
@@ -75,13 +85,14 @@ const Projects = () => {
               A responsive form with HTML5 + custom JS validation for email, phone, and passwords.
             </p>
             <a
-              href="https://chidiresreeja.github.io/validation-form/"
-              className="text-pink-400 hover:underline text-sm"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project
-            </a>
+                href="https://chidiresreeja.github.io/validation-form/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition-colors"
+              >
+                View Project
+              </a>
+  
           </div>
         </div>
       </div>

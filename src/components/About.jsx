@@ -1,10 +1,18 @@
+import { useNavigate } from "react-router-dom";
 const About = () => {
+  const navigate = useNavigate();
   return (
     <section
       id="about"
       data-aos="fade-up"
-      className="min-h-screen bg-gray-950 text-white py-16 px-6"
-    >
+      className="min-h-screen bg-gradient-to-b from-[#1f1c2c] via-[#2b5876] to-[#4e4376] text-white py-16 px-6 scroll-mt-24"
+    > 
+    <button
+        onClick={() => navigate("/")}
+        className="mb-6 text-pink-400 hover:underline"
+      >
+        ← Back to Home
+      </button>
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 border-b-2 border-pink-500 inline-block">
           About Me
