@@ -1,4 +1,4 @@
-import aws from "../assets/aws.jpg";
+import aws from "../assets/AWS.jpg";
 import forage from "../assets/forage.jpg";
 import gc from "../assets/gc.jpg";
 import gl from "../assets/gl.jpg";
